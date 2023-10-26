@@ -34,7 +34,7 @@ export default function AlbumCarousel() {
   const renderThumbs = () => {
     return albumList.map((album: any) => (
       <div key={album} className="h-full relative brightness-50 contrast-125 hover:brightness-75 transition">
-        <Image priority={true} src={album} className='object-cover' alt="img" fill sizes="100%" />
+        <Image src={album} className='object-cover' alt="img" fill sizes="100%" />
       </div>
     ));
   };
@@ -43,7 +43,7 @@ export default function AlbumCarousel() {
                 {albumList.map(item => (
                     
                 <div key={item}>
-                <Image priority={true} alt='' width={200} height={200} src={item} />
+                <Image alt='' width={200} height={200} src={item} />
                 <p className="legend">Legend 1</p>
             </div>
                 ))}
