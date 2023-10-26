@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.albumCarousel {
+  animation: fadeIn linear 0.5s;
+}
+// Customize React Responsive Carousel
+.carousel.carousel-slider,
+.slider-wrapper.axis-horizontal,
+.slider.animated {
+  height: 100%;
+}
+
+.carousel.carousel-slider .control-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  bottom: unset;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  padding: 0;
+
+  &.control-disabled {
+    display: none;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  &::before {
+    position: relative;
+    margin: 0;
+    left: -1px;
+  }
+
+  &.control-next {
+    &::before {
+      left: unset;
+      right: -2px;
+    }
+  }
+}
+
+.thumbs-wrapper.axis-vertical {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 60px;
+  overflow: visible;
+  margin: 0;
+
+  .thumbs {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+
+    &,
+    &.animated {
+      height: 60px;
+    }
+
+    .thumb {
+      height: 100%;
+      scale: 1;
+      border: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      flex-shrink: 0;
+
+      &.selected {
+        scale: 1.25;
+        border-radius: 8px;
+        z-index: 20;
+
+        div {
+          filter: unset;
+        }
+      }
+    }
+  }
+
+  .control-arrow {
+    display: none;
+  }
+}
+
+.slider {
+  height: 100%;
+}
+
+li.slide {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    @apply opacity-0;
+  }
+  100% {
+    @apply opacity-100;
+  }
+}

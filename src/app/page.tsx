@@ -1,113 +1,223 @@
+import { Carousel } from 'react-responsive-carousel'
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import AlbumCarousel from './Album'
 import Image from 'next/image'
 
 export default function Home() {
+  const albumList = [
+  {
+    "albumId": 1,
+    "id": 1,
+    "title": "accusamus beatae ad facilis cum similique qui sunt",
+    "url": "https://via.placeholder.com/600/92c952",
+    "thumbnailUrl": "https://via.placeholder.com/150/92c952"
+  },
+  {
+    "albumId": 1,
+    "id": 2,
+    "title": "reprehenderit est deserunt velit ipsam",
+    "url": "https://via.placeholder.com/600/771796",
+    "thumbnailUrl": "https://via.placeholder.com/150/771796"
+  },
+  {
+    "albumId": 1,
+    "id": 3,
+    "title": "officia porro iure quia iusto qui ipsa ut modi",
+    "url": "https://via.placeholder.com/600/24f355",
+    "thumbnailUrl": "https://via.placeholder.com/150/24f355"
+  },
+  {
+    "albumId": 1,
+    "id": 4,
+    "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
+    "url": "https://via.placeholder.com/600/d32776",
+    "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+  },
+  {
+    "albumId": 1,
+    "id": 5,
+    "title": "natus nisi omnis corporis facere molestiae rerum in",
+    "url": "https://via.placeholder.com/600/f66b97",
+    "thumbnailUrl": "https://via.placeholder.com/150/f66b97"
+  },
+  {
+    "albumId": 1,
+    "id": 6,
+    "title": "accusamus ea aliquid et amet sequi nemo",
+    "url": "https://via.placeholder.com/600/56a8c2",
+    "thumbnailUrl": "https://via.placeholder.com/150/56a8c2"
+  },
+  {
+    "albumId": 1,
+    "id": 7,
+    "title": "officia delectus consequatur vero aut veniam explicabo molestias",
+    "url": "https://via.placeholder.com/600/b0f7cc",
+    "thumbnailUrl": "https://via.placeholder.com/150/b0f7cc"
+  },
+  {
+    "albumId": 1,
+    "id": 8,
+    "title": "aut porro officiis laborum odit ea laudantium corporis",
+    "url": "https://via.placeholder.com/600/54176f",
+    "thumbnailUrl": "https://via.placeholder.com/150/54176f"
+  },
+  {
+    "albumId": 1,
+    "id": 9,
+    "title": "qui eius qui autem sed",
+    "url": "https://via.placeholder.com/600/51aa97",
+    "thumbnailUrl": "https://via.placeholder.com/150/51aa97"
+  },
+  {
+    "albumId": 1,
+    "id": 10,
+    "title": "beatae et provident et ut vel",
+    "url": "https://via.placeholder.com/600/810b14",
+    "thumbnailUrl": "https://via.placeholder.com/150/810b14"
+  },
+  {
+    "albumId": 1,
+    "id": 11,
+    "title": "nihil at amet non hic quia qui",
+    "url": "https://via.placeholder.com/600/1ee8a4",
+    "thumbnailUrl": "https://via.placeholder.com/150/1ee8a4"
+  },
+  {
+    "albumId": 1,
+    "id": 12,
+    "title": "mollitia soluta ut rerum eos aliquam consequatur perspiciatis maiores",
+    "url": "https://via.placeholder.com/600/66b7d2",
+    "thumbnailUrl": "https://via.placeholder.com/150/66b7d2"
+  },
+  {
+    "albumId": 1,
+    "id": 13,
+    "title": "repudiandae iusto deleniti rerum",
+    "url": "https://via.placeholder.com/600/197d29",
+    "thumbnailUrl": "https://via.placeholder.com/150/197d29"
+  },
+  {
+    "albumId": 1,
+    "id": 14,
+    "title": "est necessitatibus architecto ut laborum",
+    "url": "https://via.placeholder.com/600/61a65",
+    "thumbnailUrl": "https://via.placeholder.com/150/61a65"
+  },
+  {
+    "albumId": 1,
+    "id": 15,
+    "title": "harum dicta similique quis dolore earum ex qui",
+    "url": "https://via.placeholder.com/600/f9cee5",
+    "thumbnailUrl": "https://via.placeholder.com/150/f9cee5"
+  },
+  {
+    "albumId": 1,
+    "id": 16,
+    "title": "iusto sunt nobis quasi veritatis quas expedita voluptatum deserunt",
+    "url": "https://via.placeholder.com/600/fdf73e",
+    "thumbnailUrl": "https://via.placeholder.com/150/fdf73e"
+  },
+  {
+    "albumId": 1,
+    "id": 17,
+    "title": "natus doloribus necessitatibus ipsa",
+    "url": "https://via.placeholder.com/600/9c184f",
+    "thumbnailUrl": "https://via.placeholder.com/150/9c184f"
+  },
+  {
+    "albumId": 1,
+    "id": 18,
+    "title": "laboriosam odit nam necessitatibus et illum dolores reiciendis",
+    "url": "https://via.placeholder.com/600/1fe46f",
+    "thumbnailUrl": "https://via.placeholder.com/150/1fe46f"
+  },
+  {
+    "albumId": 1,
+    "id": 19,
+    "title": "perferendis nesciunt eveniet et optio a",
+    "url": "https://via.placeholder.com/600/56acb2",
+    "thumbnailUrl": "https://via.placeholder.com/150/56acb2"
+  },
+  {
+    "albumId": 1,
+    "id": 20,
+    "title": "assumenda voluptatem laboriosam enim consequatur veniam placeat reiciendis error",
+    "url": "https://via.placeholder.com/600/8985dc",
+    "thumbnailUrl": "https://via.placeholder.com/150/8985dc"
+  },
+  {
+    "albumId": 1,
+    "id": 21,
+    "title": "ad et natus qui",
+    "url": "https://via.placeholder.com/600/5e12c6",
+    "thumbnailUrl": "https://via.placeholder.com/150/5e12c6"
+  },
+  {
+    "albumId": 1,
+    "id": 22,
+    "title": "et ea illo et sit voluptas animi blanditiis porro",
+    "url": "https://via.placeholder.com/600/45601a",
+    "thumbnailUrl": "https://via.placeholder.com/150/45601a"
+  },
+  {
+    "albumId": 1,
+    "id": 23,
+    "title": "harum velit vero totam",
+    "url": "https://via.placeholder.com/600/e924e6",
+    "thumbnailUrl": "https://via.placeholder.com/150/e924e6"
+  },
+  {
+    "albumId": 1,
+    "id": 24,
+    "title": "beatae officiis ut aut",
+    "url": "https://via.placeholder.com/600/8f209a",
+    "thumbnailUrl": "https://via.placeholder.com/150/8f209a"
+  },
+  {
+    "albumId": 1,
+    "id": 25,
+    "title": "facere non quis fuga fugit vitae",
+    "url": "https://via.placeholder.com/600/5e3a73",
+    "thumbnailUrl": "https://via.placeholder.com/150/5e3a73"
+  },
+  {
+    "albumId": 1,
+    "id": 26,
+    "title": "asperiores nobis voluptate qui",
+    "url": "https://via.placeholder.com/600/474645",
+    "thumbnailUrl": "https://via.placeholder.com/150/474645"
+  },
+  {
+    "albumId": 1,
+    "id": 27,
+    "title": "sit asperiores est quos quis nisi veniam error",
+    "url": "https://via.placeholder.com/600/c984bf",
+    "thumbnailUrl": "https://via.placeholder.com/150/c984bf"
+  },
+  {
+    "albumId": 1,
+    "id": 28,
+    "title": "non neque eligendi molestiae repudiandae illum voluptatem qui aut",
+    "url": "https://via.placeholder.com/600/392537",
+    "thumbnailUrl": "https://via.placeholder.com/150/392537"
+  },
+  {
+    "albumId": 1,
+    "id": 29,
+    "title": "aut ipsam quos ab placeat omnis",
+    "url": "https://via.placeholder.com/600/602b9e",
+    "thumbnailUrl": "https://via.placeholder.com/150/602b9e"
+  },
+  {
+    "albumId": 1,
+    "id": 30,
+    "title": "odio enim voluptatem quidem aut nihil illum",
+    "url": "https://via.placeholder.com/600/372c93",
+    "thumbnailUrl": "https://via.placeholder.com/150/372c93"
+  }]
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <div>
+      <AlbumCarousel />
+    </div>
   )
 }
