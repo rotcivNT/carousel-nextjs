@@ -43,7 +43,7 @@ export default function AlbumCarousel() {
                 {albumList.map(item => (
                     
                 <div key={item}>
-                <Image alt='' width={200} height={200} src={item} />
+                <Image priority={true} alt='' width={200} height={200} src={item} />
                 <p className="legend">Legend 1</p>
             </div>
                 ))}
