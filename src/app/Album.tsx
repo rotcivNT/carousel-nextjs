@@ -43,6 +43,7 @@ export default function AlbumCarousel() {
           className="object-cover"
           alt="img"
           fill
+          priority
           sizes="100%"
         />
       </div>

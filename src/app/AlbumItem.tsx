@@ -9,6 +9,7 @@ export default function AlbumItem({ image }: {image: string}) {
           alt=""
           width={200} height={200}
           src={image}
+          priority
           className={`
               duration-700 ease-in-out group-hover:opacity-75
               ${
