@@ -51,8 +51,8 @@ export default function AlbumCarousel() {
   };
   return (
     <Carousel renderThumbs={renderThumbs} className="mx-auto" renderIndicator={() => null} showArrows={true}>
-      {albumList.map((item) => (
-        <div key={item}>
+      {albumList.map((item, index) => (
+        <div key={item + index}>
           <AlbumItem image={item} />
         </div>
       ))}
