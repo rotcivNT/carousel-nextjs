@@ -8,8 +8,7 @@ export default function AlbumItem({ image }: { image: string }) {
   return (
     <Image
             alt=""
-            width={600}
-            height={600}
+            fill
             className={`
               !w-[600px] duration-700 ease-in-out mx-auto
               ${isLoading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'})`}

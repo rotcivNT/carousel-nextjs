@@ -68,6 +68,7 @@ export default function AlbumCarousel() {
       navigation={true}
       modules={[Pagination, Navigation, EffectFade]}
       className="mySwiper"
+      lazyPreloadPrevNext={3}
     >
       {images.map((image) => (
         <SwiperSlide key={image}>
