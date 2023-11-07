@@ -1,14 +1,14 @@
 "use client";
-import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import { Pagination, Navigation, EffectFade } from "swiper/modules";
+import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+import AlbumItem from "./AlbumItem";
 
 let images = [
   "https://chucphuc.s3.ap-northeast-2.amazonaws.com/users-data/Dung-Denh/HIU_0163.jpg",
@@ -57,7 +57,6 @@ let images = [
 
 export default function AlbumCarousel() {
   let [index, setIndex] = useState(0);
-  const [isLoading, setLoading] = useState(true);
   
   return (
     <Swiper
@@ -65,7 +64,6 @@ export default function AlbumCarousel() {
         type: "fraction",
       }}
       cssMode={true}
-      lazyPreloadPrevNext={1}
       keyboard={true}
       navigation={true}
       modules={[Pagination, Navigation, EffectFade]}
@@ -73,15 +71,7 @@ export default function AlbumCarousel() {
     >
       {images.map((image) => (
         <SwiperSlide key={image}>
-          <Image
-            alt=""
-            fill
-            className={`
-              duration-700 ease-in-out group-hover:opacity-75 object-contain mx-auto
-              ${isLoading ? 'scale-110 blur-2xl grayscale' : 'scale-100 blur-0 grayscale-0'})`}
-            src={image}
-            onLoad={() => setLoading(false)}
-          />
+          <AlbumItem image={image} />
         </SwiperSlide>
       ))}
     </Swiper>

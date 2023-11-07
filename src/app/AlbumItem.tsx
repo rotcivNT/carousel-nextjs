@@ -1,14 +1,20 @@
 import Image from "next/image";
+import { useState } from "react";
 
 export default function AlbumItem({ image }: { image: string }) {
+  const [isLoading, setLoading] = useState(true);
+  console.log(isLoading);
+  
   return (
     <Image
-    fill
-      sizes="100%"
-      key={image}
-      src={image}
-      alt=""
-      className="object-contain mx-auto duration-700 ease-in-out group-hover:opacity-75"
-    />
+            alt=""
+            width={600}
+            height={600}
+            className={`
+              !w-[600px] duration-700 ease-in-out mx-auto
+              ${isLoading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'})`}
+            src={image}
+            onLoad={() => setLoading(false)}
+          />
   );
 }
