@@ -2,7 +2,7 @@
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -58,15 +58,17 @@ let images = [
 export default function AlbumCarousel() {
   let [index, setIndex] = useState(0);
   const [isLoading, setLoading] = useState(true);
+  
   return (
     <Swiper
       pagination={{
         type: "fraction",
       }}
       cssMode={true}
+      lazyPreloadPrevNext={1}
       keyboard={true}
       navigation={true}
-      modules={[Pagination, Navigation]}
+      modules={[Pagination, Navigation, EffectFade]}
       className="mySwiper"
     >
       {images.map((image) => (
@@ -74,7 +76,9 @@ export default function AlbumCarousel() {
           <Image
             alt=""
             fill
-            className="w-full h-full object-cover"
+            className={`
+              duration-700 ease-in-out group-hover:opacity-75 object-contain mx-auto
+              ${isLoading ? 'scale-110 blur-2xl grayscale' : 'scale-100 blur-0 grayscale-0'})`}
             src={image}
             onLoad={() => setLoading(false)}
           />
