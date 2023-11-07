@@ -63,12 +63,11 @@ export default function AlbumCarousel() {
       pagination={{
         type: "fraction",
       }}
-      cssMode={true}
       keyboard={true}
       navigation={true}
       modules={[Pagination, Navigation, EffectFade]}
       className="mySwiper"
-      lazyPreloadPrevNext={3}
+      lazyPreloadPrevNext={2}
     >
       {images.map((image) => (
         <SwiperSlide key={image}>
