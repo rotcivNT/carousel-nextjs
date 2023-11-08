@@ -1,13 +1,20 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
-import { EffectFade, Navigation, Pagination } from "swiper/modules";
+import {
+  FreeMode,
+  Navigation,
+  Pagination,
+  Thumbs
+} from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
+// Import Swiper styles
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 import AlbumItem from "./AlbumItem";
 
 let images = [
@@ -56,24 +63,42 @@ let images = [
 ];
 
 export default function AlbumCarousel() {
-  let [index, setIndex] = useState(0);
-  
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+
   return (
-    <Swiper
-      pagination={{
-        type: "fraction",
-      }}
-      keyboard={true}
-      navigation={true}
-      modules={[Pagination, Navigation, EffectFade]}
-      className="mySwiper"
-      lazyPreloadPrevNext={1}
-    >
-      {images.map((image) => (
-        <SwiperSlide key={image}>
-          <AlbumItem image={image} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <>
+      <Swiper
+        pagination={{
+          type: "fraction",
+        }}
+        keyboard={true}
+        navigation={true}
+        thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+        modules={[Pagination, Navigation, Thumbs, FreeMode]}
+        className="mySwiper2"
+        lazyPreloadPrevNext={2}
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <AlbumItem image={image} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        slidesPerView={8}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper"
+        watchSlidesProgress={true}
+        freeMode={true}
+        spaceBetween={20}
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <AlbumItem onClick={() => thumbsSwiper.slideTo(index)}  image={image} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   );
 }
