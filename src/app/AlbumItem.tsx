@@ -1,30 +1,30 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function AlbumItem({ image, onClick }: { image: string, onClick?:any }) {
+export default function AlbumItem({ image, onClick, fill }: { image: string, onClick?:any, fill?: boolean }) {
   const [isLoading, setLoading] = useState(true);
-
+  let fillProps =fill ? {
+    fill: fill
+  } : {width: 145, height:145}
   return (
     <>
       {isLoading && (
         <Image
           alt=""
-          fill
-          className={`
-      !w-[600px] blur-2xl grayscale mx-auto
+          {...fillProps}
+          className={`blur-2xl grayscale mx-auto
       `}
           src={`/blurImg.jpg`}
         />
       )}
       <Image
         alt=""
-        fill
+        {...fillProps}
         onClick={onClick}
-        className={`
-              !w-[600px] duration-300 ease-in-out mx-auto
+        className={`object-contain duration-300 ease-in-out mx-auto
               ${
                 isLoading
-                  ? "blur-2xl grayscale"
+                  ? "blur-2xl grayscale bg-red-400"
                   : "blur-0 grayscale-0 bg-[none]"
               })`}
         src={image}

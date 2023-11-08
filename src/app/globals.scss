@@ -141,7 +141,6 @@ li.slide {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
 
   /* Center slide text vertically */
   display: flex;
@@ -154,30 +153,38 @@ li.slide {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 
 .mySwiper2 {
-  height: 80%;
+  height: calc(85%);
   width: 100%;
+  max-width: 1400px;
+  padding-bottom: 10px !important;
+  
+  .swiper-slide img {
+    object-fit: contain;
+  }
 }
 
 .mySwiper {
-  height: 20%;
+  height: calc(15%);
+  // bottom: 10px;
   box-sizing: border-box;
   padding: 10px 0;
   overflow: unset !important;
   left: 50%;
 
-  &::after {
-    content: "";
-    position: absolute;
-    width: 150%;
-    height: 100%;
-    left: -50%;
-    top: 0;
-    background-color: rgba(0,0,0,0.6);
-  }
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   width: 150%;
+  //   height: 100%;
+  //   left: -50%;
+  //   top: 0;
+  //   background-color: rgba(0,0,0,0.6);
+  // }
 }
 
 .mySwiper .swiper-slide {
@@ -185,6 +192,7 @@ li.slide {
   height: 100%;
   opacity: 0.4;
   background-color: gray;
+
 }
 
 .mySwiper .swiper-slide-thumb-active {

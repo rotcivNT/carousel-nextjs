@@ -62,25 +62,26 @@ let images = [
   "https://chucphuc.s3.ap-northeast-2.amazonaws.com/users-data/Dung-Denh/HIU_9791.jpg",
 ];
 
+
 export default function AlbumCarousel() {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   return (
     <>
       <Swiper
-        pagination={{
-          type: "fraction",
-        }}
+        onSwiper={setThumbsSwiper}
+        spaceBetween={30}
         keyboard={true}
         navigation={true}
+        onNavigationNext={({activeIndex}) => thumbsSwiper.slideTo(activeIndex)}
         thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-        modules={[Pagination, Navigation, Thumbs, FreeMode]}
+        modules={[Navigation, Thumbs, FreeMode]}
         className="mySwiper2"
         lazyPreloadPrevNext={2}
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <AlbumItem image={image} />
+            <AlbumItem fill image={image} />
           </SwiperSlide>
         ))}
       </Swiper>
