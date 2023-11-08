@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export default function AlbumItem({ image, onClick, fill }: { image: string, onClick?:any, fill?: boolean }) {
   const [isLoading, setLoading] = useState(true);
+  
   let fillProps =fill ? {
     fill: fill
   } : {width: 145, height:145}
